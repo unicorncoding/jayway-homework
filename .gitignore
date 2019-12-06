@@ -1,4 +1,5 @@
-/.gradle/
-/gradle/
+**/gradle/
 /.idea/
-/build/
+
+**/.gradle/
+**/build/
