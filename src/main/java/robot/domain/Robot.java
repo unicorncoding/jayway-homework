@@ -14,13 +14,13 @@ public class Robot {
   public void complete(Action action) {
     switch (action) {
       case MOVE_FORWARD:
-        position.moveForward();
+        position.forward();
         break;
       case TURN_LEFT:
-        position.turnLeft();
+        position.left();
         break;
       case TURN_RIGHT:
-        position.turnRight();
+        position.right();
         break;
     }
   }

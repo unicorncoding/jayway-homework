@@ -1,11 +1,22 @@
 package robot.domain;
 
 public interface RobotPosition {
-    void moveForward();
+  void forward();
 
-    void turnLeft();
+  void left();
 
-    void turnRight();
+  void right();
 
-    boolean isInside(Field field);
+  int x();
+
+  int y();
+
+  Direction direction();
+
+  enum Direction {
+    NORTH,
+    EAST,
+    SOUTH,
+    WEST
+  }
 }
