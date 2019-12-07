@@ -1,15 +1,9 @@
 package robot.domain;
 
-import robot.infra.State;
-
-import static robot.infra.State.ensure;
-
 public class Robot {
-  private final Field field;
   private final RobotPosition position;
 
-  public Robot(Field field, RobotPosition position) {
-    this.field = field;
+  public Robot(RobotPosition position) {
     this.position = position;
   }
 
@@ -20,7 +14,7 @@ public class Robot {
   public void complete(Action action) {
     switch (action) {
       case MOVE_FORWARD:
-        moveForward();
+        position.moveForward();
         break;
       case TURN_LEFT:
         position.turnLeft();
@@ -29,10 +23,5 @@ public class Robot {
         position.turnRight();
         break;
     }
-  }
-
-  private void moveForward() {
-    position.moveForward();
-    ensure(position.isInside(field), RobotMovedOutOfField::new);
   }
 }
