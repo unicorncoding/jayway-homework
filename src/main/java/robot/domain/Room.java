@@ -1,6 +1,6 @@
 package robot.domain;
 
-interface Room {
+public interface Room {
   int width();
 
   int height();

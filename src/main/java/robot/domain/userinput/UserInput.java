@@ -4,4 +4,6 @@ public interface UserInput {
   ValidRoomDimensions roomDimensions();
 
   ValidRobotPositionDefinition positionDefinitions();
+
+  ValidRobotCommandSequence commandSequence();
 }

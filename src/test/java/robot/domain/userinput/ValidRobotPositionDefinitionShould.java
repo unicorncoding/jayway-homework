@@ -1,8 +1,7 @@
-package robot.domain;
+package robot.domain.userinput;
 
 import org.junit.jupiter.api.Test;
 import robot.domain.errors.InvalidRobotPositionDefinition;
-import robot.domain.userinput.ValidRobotPositionDefinition;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -15,7 +14,7 @@ class ValidRobotPositionDefinitionShould {
   int y = 5;
   String direction = NORTH.displayName;
 
-  String validInputString = x + INPUT_SEPARATOR + y + direction;
+  String validInputString = x + INPUT_SEPARATOR + y + INPUT_SEPARATOR + direction;
 
   @Test
   void beCreatedFromValidInputString() {

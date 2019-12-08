@@ -22,4 +22,9 @@ public class CmdUserInput implements UserInput {
     public ValidRobotPositionDefinition positionDefinitions() {
         return null;
     }
+
+    @Override
+    public ValidRobotCommandSequence commandSequence() {
+        return null;
+    }
 }

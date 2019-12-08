@@ -1,4 +1,4 @@
-package robot.domain;
+package robot.domain.userinput;
 
 import org.junit.jupiter.api.Test;
 import robot.domain.errors.InvalidRoomDimensions;

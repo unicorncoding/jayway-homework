@@ -1,5 +1,9 @@
 package robot.domain;
 
+import robot.domain.errors.InvalidRobotDirection;
+
+import java.util.Arrays;
+
 public interface RobotPosition {
   void forward();
 
@@ -25,8 +29,11 @@ public interface RobotPosition {
       this.displayName = displayName;
     }
 
-    public static Direction fromDisplayString(String inputSymbol) {
-      return null;
+    public static Direction fromDisplayName(String displayName) {
+      return Arrays.stream(values())
+          .filter(direction -> direction.displayName.equals(displayName))
+          .findAny()
+          .orElseThrow(InvalidRobotDirection::new);
     }
   }
 }

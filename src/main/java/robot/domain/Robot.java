@@ -11,7 +11,7 @@ public class Robot {
     report.accept(position);
   }
 
-  public void complete(Action action) {
+  public void complete(RobotCommand action) {
     switch (action) {
       case MOVE_FORWARD:
         position.forward();

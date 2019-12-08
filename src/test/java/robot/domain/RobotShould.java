@@ -21,21 +21,21 @@ public class RobotShould {
 
   @Test
   public void moveForward() {
-    robot.complete(Action.MOVE_FORWARD);
+    robot.complete(RobotCommand.MOVE_FORWARD);
 
     verify(position, only()).forward();
   }
 
   @Test
   public void turnLeft() {
-    robot.complete(Action.TURN_LEFT);
+    robot.complete(RobotCommand.TURN_LEFT);
 
     verify(position, only()).left();
   }
 
   @Test
   public void turnRight() {
-    robot.complete(Action.TURN_RIGHT);
+    robot.complete(RobotCommand.TURN_RIGHT);
 
     verify(position, only()).right();
   }

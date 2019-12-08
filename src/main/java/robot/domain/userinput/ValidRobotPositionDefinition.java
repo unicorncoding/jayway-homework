@@ -41,7 +41,7 @@ public class ValidRobotPositionDefinition {
   }
 
   private Direction direction(String[] inputSymbols) {
-    return Direction.fromDisplayString(inputSymbols[directionIndex]);
+    return Direction.fromDisplayName(inputSymbols[directionIndex]);
   }
 
   private Integer coordinate(int dimensionIndex, String[] inputSymbols) {
