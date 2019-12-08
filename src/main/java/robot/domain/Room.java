@@ -1,6 +1,6 @@
 package robot.domain;
 
-interface Field {
+interface Room {
   int width();
 
   int height();

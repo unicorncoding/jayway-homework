@@ -4,12 +4,12 @@ import static robot.domain.RobotPosition.Direction.*;
 import static robot.infra.State.ensure;
 
 public class InMemoryPosition implements RobotPosition {
-  private Field field;
+  private Room field;
   private Direction direction;
   private int x;
   private int y;
 
-  public InMemoryPosition(Field field, Direction direction, int x, int y) {
+  public InMemoryPosition(Room field, Direction direction, int x, int y) {
     this.field = field;
     this.direction = direction;
     this.x = x;

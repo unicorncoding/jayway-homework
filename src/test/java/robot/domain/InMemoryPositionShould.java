@@ -11,13 +11,13 @@ import static org.mockito.Mockito.when;
 import static robot.domain.RobotPosition.Direction.*;
 
 class InMemoryPositionShould {
-  private Field field = mock(Field.class);
+  private Room room = mock(Room.class);
 
-  private int fieldSize = 10;
-  private int x = inTheFieldMiddle();
-  private int y = inTheFieldMiddle();
+  private int roomSize = 10;
+  private int x = inTheMiddleOfTheRoom();
+  private int y = inTheMiddleOfTheRoom();
 
-  private int inTheFieldMiddle() {
+  private int inTheMiddleOfTheRoom() {
     return 10 / 2;
   }
 
@@ -25,14 +25,14 @@ class InMemoryPositionShould {
 
   @BeforeEach
   void setUp() {
-    when(field.width()).thenReturn(fieldSize);
-    when(field.height()).thenReturn(fieldSize);
-    position = new InMemoryPosition(field, NORTH, x, y);
+    when(room.width()).thenReturn(roomSize);
+    when(room.height()).thenReturn(roomSize);
+    position = new InMemoryPosition(room, NORTH, x, y);
   }
 
   @Test
   void notCreatePositionOutsideField() {
-    assertThatThrownBy(() -> new InMemoryPosition(field, NORTH, fieldSize + 1, fieldSize))
+    assertThatThrownBy(() -> new InMemoryPosition(room, NORTH, roomSize + 1, roomSize))
         .isInstanceOf(PositionIsOutOfField.class);
   }
 
@@ -45,7 +45,7 @@ class InMemoryPositionShould {
 
   @Test
   void decrementYOnFacingSouth() {
-    position = new InMemoryPosition(field, SOUTH, x, y);
+    position = new InMemoryPosition(room, SOUTH, x, y);
     position.forward();
 
     assertThat(position.y()).as("y").isEqualTo(y - 1);
@@ -53,7 +53,7 @@ class InMemoryPositionShould {
 
   @Test
   void incrementXOnFacingEast() {
-    position = new InMemoryPosition(field, EAST, x, y);
+    position = new InMemoryPosition(room, EAST, x, y);
     position.forward();
 
     assertThat(position.x()).as("x").isEqualTo(x + 1);
@@ -61,7 +61,7 @@ class InMemoryPositionShould {
 
   @Test
   void decrementXOnFacingWest() {
-    position = new InMemoryPosition(field, WEST, x, y);
+    position = new InMemoryPosition(room, WEST, x, y);
     position.forward();
 
     assertThat(position.x()).as("x").isEqualTo(x - 1);
@@ -103,7 +103,7 @@ class InMemoryPositionShould {
 
   @Test
   void notLeaveFieldOnTheRight() {
-    RobotPosition positionAtRightBorderFacingIt = new InMemoryPosition(field, EAST, fieldSize, y);
+    RobotPosition positionAtRightBorderFacingIt = new InMemoryPosition(room, EAST, roomSize, y);
 
     assertThatThrownBy(positionAtRightBorderFacingIt::forward)
         .isInstanceOf(PositionIsOutOfField.class);
@@ -111,7 +111,7 @@ class InMemoryPositionShould {
 
   @Test
   void notLeaveFieldOnTheLeft() {
-    RobotPosition positionAtLeftBorderFacingIt = new InMemoryPosition(field, WEST, 0, y);
+    RobotPosition positionAtLeftBorderFacingIt = new InMemoryPosition(room, WEST, 0, y);
 
     assertThatThrownBy(positionAtLeftBorderFacingIt::forward)
         .isInstanceOf(PositionIsOutOfField.class);
@@ -119,7 +119,7 @@ class InMemoryPositionShould {
 
   @Test
   void notLeaveFieldOnTheTop() {
-    RobotPosition positionAtTopBorderFacingIt = new InMemoryPosition(field, NORTH, x, fieldSize);
+    RobotPosition positionAtTopBorderFacingIt = new InMemoryPosition(room, NORTH, x, roomSize);
 
     assertThatThrownBy(positionAtTopBorderFacingIt::forward)
         .isInstanceOf(PositionIsOutOfField.class);
@@ -127,7 +127,7 @@ class InMemoryPositionShould {
 
   @Test
   void notLeaveFieldOnTheBottom() {
-    RobotPosition positionAtBottomBorderFacingIt = new InMemoryPosition(field, SOUTH, x, 0);
+    RobotPosition positionAtBottomBorderFacingIt = new InMemoryPosition(room, SOUTH, x, 0);
 
     assertThatThrownBy(positionAtBottomBorderFacingIt::forward)
         .isInstanceOf(PositionIsOutOfField.class);
