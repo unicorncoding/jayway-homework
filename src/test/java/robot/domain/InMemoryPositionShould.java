@@ -21,12 +21,19 @@ class InMemoryPositionShould {
     return 10 / 2;
   }
 
-  @TestSubject InMemoryPosition position = new InMemoryPosition(field, NORTH, x, y);
+  @TestSubject InMemoryPosition position;
 
   @BeforeEach
   void setUp() {
     when(field.width()).thenReturn(fieldSize);
     when(field.height()).thenReturn(fieldSize);
+    position = new InMemoryPosition(field, NORTH, x, y);
+  }
+
+  @Test
+  void notCreatePositionOutsideField() {
+    assertThatThrownBy(() -> new InMemoryPosition(field, NORTH, fieldSize + 1, fieldSize))
+        .isInstanceOf(PositionIsOutOfField.class);
   }
 
   @Test

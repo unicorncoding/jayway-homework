@@ -14,6 +14,7 @@ public class InMemoryPosition implements RobotPosition {
     this.direction = direction;
     this.x = x;
     this.y = y;
+    ensure(isInsideField(), PositionIsOutOfField::new);
   }
 
   @Override
@@ -36,7 +37,7 @@ public class InMemoryPosition implements RobotPosition {
   }
 
   private boolean isInsideField() {
-    return x < field.width() && y < field.height() && x > 0 && y > 0;
+    return x <= field.width() && y <= field.height() && x >= 0 && y >= 0;
   }
 
   @Override
