@@ -1,10 +1,12 @@
 package robot.domain;
 
 import org.junit.jupiter.api.Test;
+import robot.domain.errors.InvalidRoomDimensions;
+import robot.domain.userinput.ValidRoomDimensions;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static robot.domain.ValidRoomDimensions.DIMENSION_SEPARATOR;
+import static robot.domain.userinput.ValidRoomDimensions.DIMENSION_SEPARATOR;
 
 class ValidRoomDimensionsShould {
 

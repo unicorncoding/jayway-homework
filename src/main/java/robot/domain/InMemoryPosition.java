@@ -1,19 +1,22 @@
 package robot.domain;
 
+import robot.domain.errors.PositionIsOutOfRoom;
+import robot.domain.userinput.ValidRobotPositionDefinition;
+
 import static robot.domain.RobotPosition.Direction.*;
 import static robot.infra.State.ensure;
 
 public class InMemoryPosition implements RobotPosition {
-  private Room field;
+  private Room room;
   private Direction direction;
   private int x;
   private int y;
 
-  public InMemoryPosition(Room field, Direction direction, int x, int y) {
-    this.field = field;
-    this.direction = direction;
-    this.x = x;
-    this.y = y;
+  public InMemoryPosition(Room room, ValidRobotPositionDefinition positionDefinition) {
+    this.room = room;
+    this.direction = positionDefinition.direction;
+    this.x = positionDefinition.x;
+    this.y = positionDefinition.y;
     ensure(isInsideRoom(), PositionIsOutOfRoom::new);
   }
 
@@ -37,7 +40,7 @@ public class InMemoryPosition implements RobotPosition {
   }
 
   private boolean isInsideRoom() {
-    return x <= field.width() && y <= field.height() && x >= 0 && y >= 0;
+    return x <= room.width() && y <= room.height() && x >= 0 && y >= 0;
   }
 
   @Override

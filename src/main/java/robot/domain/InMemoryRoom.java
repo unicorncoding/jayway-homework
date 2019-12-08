@@ -1,6 +1,6 @@
 package robot.domain;
 
-import static robot.infra.State.ensure;
+import robot.domain.userinput.ValidRoomDimensions;
 
 public class InMemoryRoom implements Room {
   private final int width;

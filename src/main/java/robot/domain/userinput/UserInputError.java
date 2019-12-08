@@ -1,4 +1,4 @@
-package robot.domain;
+package robot.domain.userinput;
 
 public interface UserInputError {
 }

@@ -1,4 +1,6 @@
-package robot.domain;
+package robot.domain.userinput;
+
+import robot.domain.errors.InvalidRoomDimensions;
 
 import java.util.regex.Pattern;
 
