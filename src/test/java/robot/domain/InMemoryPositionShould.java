@@ -33,7 +33,7 @@ class InMemoryPositionShould {
   @Test
   void notCreatePositionOutsideField() {
     assertThatThrownBy(() -> new InMemoryPosition(room, NORTH, roomSize + 1, roomSize))
-        .isInstanceOf(PositionIsOutOfField.class);
+        .isInstanceOf(PositionIsOutOfRoom.class);
   }
 
   @Test
@@ -106,7 +106,7 @@ class InMemoryPositionShould {
     RobotPosition positionAtRightBorderFacingIt = new InMemoryPosition(room, EAST, roomSize, y);
 
     assertThatThrownBy(positionAtRightBorderFacingIt::forward)
-        .isInstanceOf(PositionIsOutOfField.class);
+        .isInstanceOf(PositionIsOutOfRoom.class);
   }
 
   @Test
@@ -114,7 +114,7 @@ class InMemoryPositionShould {
     RobotPosition positionAtLeftBorderFacingIt = new InMemoryPosition(room, WEST, 0, y);
 
     assertThatThrownBy(positionAtLeftBorderFacingIt::forward)
-        .isInstanceOf(PositionIsOutOfField.class);
+        .isInstanceOf(PositionIsOutOfRoom.class);
   }
 
   @Test
@@ -122,7 +122,7 @@ class InMemoryPositionShould {
     RobotPosition positionAtTopBorderFacingIt = new InMemoryPosition(room, NORTH, x, roomSize);
 
     assertThatThrownBy(positionAtTopBorderFacingIt::forward)
-        .isInstanceOf(PositionIsOutOfField.class);
+        .isInstanceOf(PositionIsOutOfRoom.class);
   }
 
   @Test
@@ -130,6 +130,6 @@ class InMemoryPositionShould {
     RobotPosition positionAtBottomBorderFacingIt = new InMemoryPosition(room, SOUTH, x, 0);
 
     assertThatThrownBy(positionAtBottomBorderFacingIt::forward)
-        .isInstanceOf(PositionIsOutOfField.class);
+        .isInstanceOf(PositionIsOutOfRoom.class);
   }
 }

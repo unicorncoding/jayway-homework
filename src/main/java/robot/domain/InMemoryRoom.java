@@ -6,15 +6,9 @@ public class InMemoryRoom implements Room {
   private final int width;
   private final int height;
 
-  public InMemoryRoom(int width, int height) {
-    ensure(isPositive(width), NegativeRoomDimensions::new);
-    ensure(isPositive(height), NegativeRoomDimensions::new);
-    this.width = width;
-    this.height = height;
-  }
-
-  private boolean isPositive(int dimension) {
-    return dimension > 0;
+  public InMemoryRoom(ValidRoomDimensions roomDimensions) {
+    this.width = roomDimensions.width;
+    this.height = roomDimensions.height;
   }
 
   @Override
