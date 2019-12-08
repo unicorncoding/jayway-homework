@@ -26,7 +26,7 @@ public class ValidRobotPositionDefinition {
   public final int y;
   public final Direction direction;
 
-  public static ValidRobotPositionDefinitionInput inputDefinition() {
+  public static UserInputDefinition<ValidRobotPositionDefinition> inputDefinition() {
     return new ValidRobotPositionDefinition.ValidRobotPositionDefinitionInput();
   }
 
@@ -49,7 +49,7 @@ public class ValidRobotPositionDefinition {
   }
 
   static class ValidRobotPositionDefinitionInput
-      implements UserInputDefinition<ValidRoomDimensions> {
+      implements UserInputDefinition<ValidRobotPositionDefinition> {
     @Override
     public String describeInputFormat() {
       return "Please enter robot position in format: X Y Direction 1 letter. For example: \"5 5 N\" to place robot at x=5 and y=5 and facing North";

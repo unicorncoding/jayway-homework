@@ -1,5 +1,5 @@
 package robot.domain.errors;
 
-import robot.domain.userinput.UserInputError;
+import robot.domain.UserInputError;
 
-public class PositionIsOutOfRoom extends IllegalStateException implements UserInputError {}
+public class PositionIsOutOfRoom extends UserInputError {}

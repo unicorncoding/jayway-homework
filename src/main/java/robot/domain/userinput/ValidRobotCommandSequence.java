@@ -25,7 +25,19 @@ public class ValidRobotCommandSequence {
             .collect(Collectors.toList());
   }
 
+  public static UserInputDefinition<ValidRobotCommandSequence> inputDefinition() {
+    return new ValidCommandSequenceDefinitionInput();
+  }
+
   public Stream<RobotCommand> stream() {
     return commands.stream();
+  }
+
+  static class ValidCommandSequenceDefinitionInput
+      implements UserInputDefinition<ValidRobotCommandSequence> {
+    @Override
+    public String describeInputFormat() {
+      return "Please enter robot position in format: X Y Direction 1 letter. For example: \"5 5 N\" to place robot at x=5 and y=5 and facing North";
+    }
   }
 }

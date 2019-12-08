@@ -1,5 +1,5 @@
 package robot.domain.errors;
 
-import robot.domain.userinput.UserInputError;
+import robot.domain.UserInputError;
 
-public class InvalidRobotCommand extends IllegalArgumentException implements UserInputError {}
+public class InvalidRobotCommand extends UserInputError {}
