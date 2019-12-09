@@ -1,25 +1,44 @@
-package robot;
+package robot.infra;
+
+import robot.domain.RobotCommand;
+import robot.domain.RobotPosition;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 public class FakeUser {
   private QueuedInput in = new QueuedInput();
 
   public FakeUser() throws IOException {}
 
-  InputStream in() {
+  public InputStream in() {
     return in;
   }
 
-  void input(String data) {
+  private void input(String data) {
     try {
       in.add(data + "\n");
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
+  }
+
+  public void inputRobotPosition(int x, int y, RobotPosition.Direction direction) {
+    input(x + " " + y + " " + direction.displayName);
+  }
+
+  public void inputRobotCommands(RobotCommand... commands) {
+    String commandsAsString =
+        Arrays.stream(commands).map(command -> command.displayName).collect(Collectors.joining());
+    input(commandsAsString);
+  }
+
+  public void inputRoomDimensions(int width, int height) {
+    input(width + " " + height);
   }
 
   static class QueuedInput extends InputStream {
