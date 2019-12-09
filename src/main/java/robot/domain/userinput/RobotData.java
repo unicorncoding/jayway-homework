@@ -1,6 +1,6 @@
 package robot.domain.userinput;
 
-public interface UserInput {
+public interface RobotData {
   ValidRoomDimensions roomDimensions();
 
   ValidRobotPositionDefinition positionDefinition();

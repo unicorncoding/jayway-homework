@@ -19,6 +19,6 @@ public enum RobotCommand {
     return Arrays.stream(values())
         .filter(command -> command.displayName.equals(displayName))
         .findAny()
-        .orElseThrow(InvalidRobotCommand::new);
+        .orElseThrow(() -> new InvalidRobotCommand(displayName));
   }
 }

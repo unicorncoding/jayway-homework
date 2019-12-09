@@ -33,7 +33,7 @@ public class ValidRobotPositionDefinition {
   Pattern pattern = Pattern.compile("[0-9]* [0-9]* [" + possibleDirectionDisplayString + "]");
 
   public ValidRobotPositionDefinition(String input) {
-    ensure(pattern.matcher(input).matches(), InvalidRobotPositionDefinition::new);
+    ensure(pattern.matcher(input).matches(), () -> new InvalidRobotPositionDefinition(input));
     String[] inputSymbols = input.split(INPUT_SEPARATOR);
     this.x = coordinate(xIndex, inputSymbols);
     this.y = coordinate(yIndex, inputSymbols);

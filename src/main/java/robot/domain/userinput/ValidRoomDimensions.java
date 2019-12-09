@@ -21,7 +21,7 @@ public class ValidRoomDimensions {
   Pattern pattern = Pattern.compile("[0-9]* [0-9]*");
 
   public ValidRoomDimensions(String input) {
-    ensure(pattern.matcher(input).matches(), InvalidRoomDimensions::new);
+    ensure(pattern.matcher(input).matches(), () -> new InvalidRoomDimensions(input));
     String[] widthAndHeight = input.split(DIMENSION_SEPARATOR);
     this.width = dimension(widthIndex, widthAndHeight);
     this.height = dimension(heightIndex, widthAndHeight);

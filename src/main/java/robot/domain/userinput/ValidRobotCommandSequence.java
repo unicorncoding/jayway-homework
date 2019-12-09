@@ -37,7 +37,12 @@ public class ValidRobotCommandSequence {
       implements UserInputDefinition<ValidRobotCommandSequence> {
     @Override
     public String describeInputFormat() {
-      return "Please enter robot position in format: X Y Direction 1 letter. For example: \"5 5 N\" to place robot at x=5 and y=5 and facing North";
+      return "Please enter robot command sequence: \n"
+          + "L Turn left\n"
+          + "R Turn right\n"
+          + "F Walk forward\n"
+          + "Example:\n"
+          + "LFFRFRFRFF";
     }
   }
 }

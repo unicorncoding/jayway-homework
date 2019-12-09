@@ -33,7 +33,7 @@ public interface RobotPosition {
       return Arrays.stream(values())
           .filter(direction -> direction.displayName.equals(displayName))
           .findAny()
-          .orElseThrow(InvalidRobotDirection::new);
+          .orElseThrow(() -> new InvalidRobotDirection(displayName));
     }
   }
 }

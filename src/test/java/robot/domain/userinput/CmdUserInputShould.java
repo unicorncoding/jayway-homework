@@ -3,6 +3,7 @@ package robot.domain.userinput;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import robot.domain.Report;
+import robot.domain.UserCommandFactory;
 import robot.domain.UserInputError;
 import robot.domain.userinput.ValidRobotCommandSequence.ValidCommandSequenceDefinitionInput;
 import robot.domain.userinput.ValidRobotPositionDefinition.ValidRobotPositionDefinitionInput;

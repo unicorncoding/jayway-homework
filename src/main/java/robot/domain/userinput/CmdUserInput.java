@@ -1,13 +1,14 @@
 package robot.domain.userinput;
 
 import robot.domain.Report;
+import robot.domain.UserCommandFactory;
 import robot.domain.UserInputError;
 
 import java.util.Scanner;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-public class CmdUserInput implements UserInput {
+public class CmdUserInput implements RobotData {
   private final Scanner scanner;
   private final UserCommandFactory userCommandFactory;
   private final Report report;
@@ -41,7 +42,7 @@ public class CmdUserInput implements UserInput {
     do {
       try {
         report.accept(readRequestInfo.get());
-        String userInputString = scanner.nextLine();
+        String userInputString = scanner.nextLine().trim();
         return mapper.apply(userInputString);
       } catch (UserInputError e) {
         e.writeTo(report);

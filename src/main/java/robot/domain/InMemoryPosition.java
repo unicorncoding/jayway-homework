@@ -17,7 +17,7 @@ public class InMemoryPosition implements RobotPosition {
     this.direction = positionDefinition.direction;
     this.x = positionDefinition.x;
     this.y = positionDefinition.y;
-    ensure(isInsideRoom(), PositionIsOutOfRoom::new);
+    ensure(isInsideRoom(), () -> new PositionIsOutOfRoom(this, room));
   }
 
   @Override
@@ -36,7 +36,7 @@ public class InMemoryPosition implements RobotPosition {
         x--;
         break;
     }
-    ensure(isInsideRoom(), PositionIsOutOfRoom::new);
+    ensure(isInsideRoom(), () -> new PositionIsOutOfRoom(this, room));
   }
 
   private boolean isInsideRoom() {
@@ -95,6 +95,4 @@ public class InMemoryPosition implements RobotPosition {
   public Direction direction() {
     return direction;
   }
-
-  public static class IsOutOfFirstCartesianQuadrant extends IllegalStateException {}
 }

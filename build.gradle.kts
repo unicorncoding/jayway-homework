@@ -16,11 +16,18 @@ dependencies {
     testImplementation(Libs.assertJ)
     testImplementation(Libs.mockito)
     testImplementation(Libs.mockito_inline)
+    testImplementation(Libs.awaility)
     testRuntimeOnly(Libs.junit5_engine)
 }
 
 configure<JavaPluginConvention> {
     sourceCompatibility = JavaVersion.VERSION_12
+}
+
+configure<SourceSetContainer> {
+    named("test") {
+        java.srcDir("src/test-integration/java")
+    }
 }
 
 tasks.test {

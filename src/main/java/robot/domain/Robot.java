@@ -1,5 +1,7 @@
 package robot.domain;
 
+import robot.domain.userinput.ValidRobotCommandSequence;
+
 public class Robot {
   private final RobotPosition position;
 
@@ -9,6 +11,10 @@ public class Robot {
 
   public void positionTo(Report report) {
     report.accept(position);
+  }
+
+  public void complete(ValidRobotCommandSequence commandSequence) {
+    commandSequence.stream().forEach(this::complete);
   }
 
   public void complete(RobotCommand action) {
