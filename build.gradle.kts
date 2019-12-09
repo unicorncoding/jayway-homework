@@ -1,7 +1,5 @@
-
 plugins {
     java
-    application
 }
 
 group = "my.robot"
@@ -21,7 +19,7 @@ dependencies {
 }
 
 configure<JavaPluginConvention> {
-    sourceCompatibility = JavaVersion.VERSION_12
+    sourceCompatibility = JavaVersion.VERSION_1_8
 }
 
 configure<SourceSetContainer> {
@@ -32,4 +30,10 @@ configure<SourceSetContainer> {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+tasks.jar {
+    manifest {
+        attributes["Main-Class"] = "robot.RobotApplication"
+    }
 }
