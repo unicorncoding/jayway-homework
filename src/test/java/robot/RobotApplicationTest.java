@@ -109,7 +109,7 @@ class RobotApplicationTest {
   }
 
   @Test
-  void throwsOnUnknownMove() {
+  void throwsOnMalformedMove() {
     input.roomDimensions(5, 5);
     input.robotPosition(1, 1, "N");
     input.robotMoves("X");
@@ -119,7 +119,7 @@ class RobotApplicationTest {
   }
 
   @Test
-  void throwsOnWrongPosition() {
+  void throwsOnMalformedPosition() {
     input.roomDimensions(5, 5);
     input.robotPosition(1, 1, "X");
     input.robotMoves("F");
@@ -131,7 +131,7 @@ class RobotApplicationTest {
   }
 
   @Test
-  void throwsOnWrongDimensions() {
+  void throwsOnMalformedDimensions() {
     input.roomDimensions(-1, -1);
     input.robotPosition(1, 1, "N");
     input.robotMoves("F");
@@ -144,7 +144,7 @@ class RobotApplicationTest {
 
   @ParameterizedTest
   @MethodSource("robotPosition")
-  void throwsOnWrongPosition(int x, int y) {
+  void throwsIfPlacedOutsideOfRoom(int x, int y) {
     input.roomDimensions(5, 5);
     input.robotPosition(x, y, "N");
     input.robotMoves("RFRFFRFRF");
