@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static java.lang.Integer.parseInt;
 import static java.lang.String.format;
 
 class RoomPrompt {
@@ -16,10 +17,6 @@ class RoomPrompt {
   public RoomPrompt(Scanner scanner, PrintStream out) {
     this.scanner = scanner;
     this.out = out;
-  }
-
-  private Integer dimension(int dimensionIndex, String[] widthAndHeight) {
-    return Integer.valueOf(widthAndHeight[dimensionIndex]);
   }
 
   public Room prompt() {
@@ -34,8 +31,8 @@ class RoomPrompt {
     String[] widthAndHeight = input.split(" ");
 
     return new Room(
-            dimension(0, widthAndHeight),
-            dimension(1, widthAndHeight)
+            parseInt(widthAndHeight[0]),
+            parseInt(widthAndHeight[1])
     );
 
   }
