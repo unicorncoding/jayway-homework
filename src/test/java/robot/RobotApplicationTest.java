@@ -103,7 +103,7 @@ class RobotApplicationTest {
     robotRuns();
 
     //  👉 then:
-    //  ↑ o
+    //  ← o
     //  o o
     assertThat(output).asString().contains("Report: 1 1 W");
   }
