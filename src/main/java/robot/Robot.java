@@ -15,7 +15,7 @@ class Robot {
     moves.forEach(move -> move.perform(position));
   }
 
-  public void report(PrintStream printer) {
+  public void reportPositionUsing(PrintStream printer) {
     printer.println(position);
   }
 

@@ -36,7 +36,7 @@ public class RobotApplication {
 
     Robot robot = new Robot(position);
     robot.perform(moves);
-    robot.report(printer);
+    robot.reportPositionUsing(printer);
   }
 
 }
