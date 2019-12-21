@@ -1,6 +1,7 @@
 object Libs {
     val junit5_api = "org.junit.jupiter:junit-jupiter-api:${Versions.junit5}"
     val junit5_engine = "org.junit.jupiter:junit-jupiter-engine:${Versions.junit5}"
+    val junit5_params = "org.junit.jupiter:junit-jupiter-params:${Versions.junit5}"
     val awaility = "org.awaitility:awaitility:4.0.1"
     val mockito = "org.mockito:mockito-core:${Versions.mockito}"
     val mockito_inline = "org.mockito:mockito-inline:${Versions.mockito}"

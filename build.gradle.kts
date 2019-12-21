@@ -11,6 +11,7 @@ repositories {
 
 dependencies {
     testImplementation(Libs.junit5_api)
+    testImplementation(Libs.junit5_params)
     testImplementation(Libs.assertJ)
     testImplementation(Libs.mockito)
     testImplementation(Libs.mockito_inline)
@@ -20,12 +21,6 @@ dependencies {
 
 configure<JavaPluginConvention> {
     sourceCompatibility = JavaVersion.VERSION_1_8
-}
-
-configure<SourceSetContainer> {
-    named("test") {
-        java.srcDir("src/test-integration/java")
-    }
 }
 
 tasks.test {
