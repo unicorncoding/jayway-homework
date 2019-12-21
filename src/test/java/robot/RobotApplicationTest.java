@@ -144,7 +144,7 @@ class RobotApplicationTest {
 
   @ParameterizedTest
   @MethodSource("robotPosition")
-  void throwsOnUnknownMove(int x, int y) {
+  void throwsOnWrongPosition(int x, int y) {
     input.roomDimensions(5, 5);
     input.robotPosition(x, y, "N");
     input.robotMoves("RFRFFRFRF");
